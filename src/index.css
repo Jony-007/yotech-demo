@@ -1,13 +1,114 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* NavBar */
+
+.navContainer{
+    animation: sticky  0.3s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes sticky{
+    0% {
+        transform: translateY(-200px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
+
+.link{
+    position: relative;
+    text-decoration: none;
+   
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    /* padding: 0 10px; */
+    font-weight: 500;
+
+}
+
+.link:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #652783;
+    left: 0;
+
+    bottom: -2px;
+    transition:  0.3s;
+
+    /* left: 3px;
+    bottom: -2px; */
+    
+
+}
+
+.afterHoveringLink:before{
+    
+    
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s;
+    
+
+}
+
+
+/* .link:hover:before{
+    width: 70%;
+    
+
+} */
+
+
+.afterHoveringLink:hover:before{
+    width: 70%;
+    transform: scaleX(1);
+    transform-origin: left;
+
+}
+
+
+/* Slogan */
+
+.slogan{
+    background-image: url(/src/img/syl-map.png);
+    background-position: 50%;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.slogan:before{
+    position: absolute;
+    content: "";
+    background: linear-gradient(#f3f4f4, #e0e1e5);
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+   
+}
+
+.sloganRight:after{
+    
+        position: absolute;
+        content: "";
+        width: 59rem;
+        transform-origin: center;
+        height: 1435px;
+        background: linear-gradient(#fff,#eee);
+        box-shadow: 0 3px 80px rgba(128,154,177,.12);
+        right: 5rem;
+        z-index: -1;
+        transform: rotate(30deg);
+        opacity: 1;
+        top: -40rem;
+        
+    
+}
+
